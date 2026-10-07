@@ -168,12 +168,14 @@
                 </div>
             </div>
             <div class="w-full md:w-1/2">
-                <form class="space-y-6" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');">
-                    <div><input type="text" placeholder="Seu Nome" required class="w-full bg-stone-800 border-b border-stone-600 px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-accent transition-colors font-sans font-light"></div>
-                    <div><input type="email" placeholder="Seu E-mail" required class="w-full bg-stone-800 border-b border-stone-600 px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-accent transition-colors font-sans font-light"></div>
-                    <div><textarea placeholder="Sobre o seu projeto..." rows="4" required class="w-full bg-stone-800 border-b border-stone-600 px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-accent transition-colors font-sans font-light resize-none"></textarea></div>
-                    <button type="submit" class="bg-accent text-white font-sans text-sm tracking-widest uppercase py-4 px-8 hover:bg-stone-100 hover:text-stone-900 transition-all duration-300 w-full sm:w-auto mt-4">Enviar Mensagem</button>
-                </form>
+				<form class="space-y-6" onsubmit="event.preventDefault(); document.getElementById('mensagem-erro').style.display = 'block';">
+					<div><input type="text" placeholder="Seu Nome" required class="w-full bg-stone-800 border-b border-stone-600 px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-accent transition-colors font-sans font-light"></div>
+					<div><input type="email" placeholder="Seu E-mail" required class="w-full bg-stone-800 border-b border-stone-600 px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-accent transition-colors font-sans font-light"></div>
+					<div><textarea placeholder="Sobre o seu projeto..." rows="4" required class="w-full bg-stone-800 border-b border-stone-600 px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-accent transition-colors font-sans font-light resize-none"></textarea></div>
+					<button type="submit" class="bg-accent text-white font-sans text-sm tracking-widest uppercase py-4 px-8 hover:bg-stone-100 hover:text-stone-900 transition-all duration-300 w-full sm:w-auto mt-4">Enviar Mensagem</button>
+					<!-- Nova linha: Mensagem de erro que começa escondida -->
+					<p id="mensagem-erro" style="display: none;" class="text-red-500 font-sans text-sm font-light mt-4">O serviço de mensagem está temporariamente indisponível, entrar em contato direto via e-mail contato@moniquenovacov.arq.br </p>
+				</form>
             </div>
         </div>
     </section>
