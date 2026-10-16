@@ -476,11 +476,25 @@
             const cards = carousel.children;
             if (cards.length === 0) return;
 
-            const gap = 32; 
+            const gap = 32; // Gap de 32px entre os cards (gap-8)
             const cardWidth = cards[0].offsetWidth + gap;
             
-            carousel.style.transform = `translateX(-${projectsCurrentIndex * cardWidth}px)`;
+            // Descobre quantos cards cabem na tela atualmente
+            let itemsPerPage = 1;
+            if (window.innerWidth >= 1024) {
+                itemsPerPage = 3; // Desktop
+            } else if (window.innerWidth >= 768) {
+                itemsPerPage = 2; // Tablet
+            }
 
+            // Calcula o deslocamento máximo permitido para não deixar espaços em branco no final
+            const maxIndex = cards.length - itemsPerPage;
+            const targetIndex = Math.min(projectsCurrentIndex, Math.max(0, maxIndex));
+
+            // Aplica a rolagem travada no limite
+            carousel.style.transform = `translateX(-${targetIndex * cardWidth}px)`;
+
+            // Atualiza a seleção visual das bolinhas (dots)
             if (indicatorsContainer) {
                 const dots = Array.from(indicatorsContainer.children);
                 dots.forEach((dot, index) => {
